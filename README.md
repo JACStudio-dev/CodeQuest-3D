@@ -20,7 +20,7 @@ CodeQuest 3D es un videojuego desarrollado con Unity. Se trata de un RPG 3D con 
 ## Requisitos
 
 * Unity Hub
-* Unity 6 (versión definida por el proyecto)
+* Unity 6 (6000.4.5f1)
 * Git
 
 ## Clonar el proyecto
