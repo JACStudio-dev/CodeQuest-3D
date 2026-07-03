@@ -1,0 +1,19 @@
+# Unity
+Library/
+Temp/
+Logs/
+UserSettings/
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+
+# Archivos generados por Unity
+*.csproj
+*.sln
+*.slnx
+.vsconfig
+
+# Unity Version Control
+.plastic/
