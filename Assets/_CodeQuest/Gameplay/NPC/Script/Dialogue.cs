@@ -28,6 +28,7 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
+        //El jugador esta en rango y presiona la tecla E para iniciar el dialogo
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
             //Validamos que el dialogo no haya empezado para iniciar el dialogo
@@ -39,6 +40,11 @@ public class Dialogue : MonoBehaviour
             {
                 NextDialogueLine();
             }
+            else
+            {
+                StopAllCoroutines();
+                dialogueText.text = dialogueLines[lineIndex];
+            }
         }
     }
     //Funcion para iniciar el dialogo
@@ -48,6 +54,10 @@ public class Dialogue : MonoBehaviour
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
         lineIndex = 0;
+        /* Preguntar si se puede implementar esto
+         * ya que esto va a ocasionar que todo objeto que tenga movimiento (sean npcs, autos, etc) se detengan durante el dialogo con el npc
+        Time.timeScale = 0f; // Pausar el juego para evitar el movimiento del jugador durante el diálogo
+        */
         StartCoroutine(ShowLine());
     }
     //Cambio de linea de dialogo
@@ -63,6 +73,10 @@ public class Dialogue : MonoBehaviour
             didDialogueStart=false;
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(true);
+
+            /* Preguntar si se puede implementar esto
+            Time.timeScale = 1f; // Reanudar el juego después de que termine el diálogo
+            */
         }
     }
 
@@ -74,7 +88,7 @@ public class Dialogue : MonoBehaviour
         foreach (char ch in dialogueLines[lineIndex])
         {
             dialogueText.text += ch;
-            yield return new WaitForSeconds(typingTime);
+            yield return new WaitForSecondsRealtime(typingTime);
         }
     }
     private void OnTriggerEnter(Collider collision)
