@@ -12,6 +12,9 @@ public class Camera : MonoBehaviour
     private Vector3 offset;
     private Vector3 originalOffset;
 
+    private float rotacionVertical = 0f;
+    private float rotacionHorizontal = 0f;
+
     void Start()
     {
         offset = new Vector3(0, height, -distance);
@@ -25,7 +28,7 @@ public class Camera : MonoBehaviour
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
 
-            Quaternion rotation = Quaternion.Euler(-mouseY * rotationSpeed, mouseX * rotationSpeed, 0);
+            Quaternion rotation = Quaternion.Euler(-mouseY, mouseX * rotationSpeed, 0);
             offset = rotation * offset;
         }
         else

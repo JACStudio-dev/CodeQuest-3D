@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    //variable para que de forma rapida ajustar la velocidad en la interfaz
+    public float VelocidadRotatacion = 100f;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -69,7 +72,10 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        //rota el jugador tomando encuenta la variable de velocidad de rotacion
+        transform.Rotate(Vector3.up * x * VelocidadRotatacion * Time.deltaTime);
+
+        Vector3 move = transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
     }
