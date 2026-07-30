@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 public class cinematica_intro : MonoBehaviour
 {
     public PlayableDirector cinematica;
-    public float tiempoCinematica = 10f;
+    public float tiempoCinematica;
     float tiempo = 0;
 
     public GameObject objetoAnimacion;
