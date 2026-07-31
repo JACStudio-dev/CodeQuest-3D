@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_CodeQuest/Scenes/menu-principal.unity
+    path: Assets/_CodeQuest/Scenes/menu/menu-principal.unity
     guid: 6ecf5ae4bbda5b54f886e0a727b9a83d
   - enabled: 1
     path: Assets/_CodeQuest/Scenes/acto-0/casa-dev.unity
