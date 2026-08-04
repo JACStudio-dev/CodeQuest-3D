@@ -6,7 +6,8 @@ public class opciones_pausa : MonoBehaviour
     public GameObject menuPausa;
     public GameObject opcionesPausa;
     public GameObject opcionesAjustes;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private bool juegoPausado = false;
 
     void Start()
     {
@@ -21,19 +22,41 @@ public class opciones_pausa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("estoy pausando el juego");
-            Pausa();
+            if (juegoPausado)
+            {
+                Debug.Log("estoy reanudando el juego");
+                Reanudar();
+            }
+            else
+            {
+                Debug.Log("estoy pausando el juego");
+                Pausa();
+            }
         }
     }
 
     private void Pausa()
     {
+        juegoPausado = true;
+
+        Time.timeScale = 0f;
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         menuPausa.SetActive(true);
         opcionesPausa.SetActive(true);
     }
 
     public void Reanudar()
     {
+        juegoPausado = false;
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+
+        Time.timeScale = 1f;
+
         menuPausa.SetActive(false);
         opcionesPausa.SetActive(false);
         opcionesAjustes.SetActive(false);
