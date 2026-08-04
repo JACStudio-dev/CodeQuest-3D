@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 public class cambio_escena_trigger : MonoBehaviour
 {
     public string nombreEscena;
-    //public bool cambio = false;
 
     public void OnTriggerEnter(Collider other)
     {

@@ -32,20 +32,20 @@ public class opciones_menu_principal : MonoBehaviour
     public void EntrarAjustes() 
     { 
         Debug.Log("Entrando a ajustes");
-        efectosBotones.BotonClickeado();
+        //efectosBotones.BotonClickeado();
         configuracion_Global.Ajustes();
     }
 
     public void CreditosJuego()
     {
         Debug.Log("Entrando a creditos");
-        efectosBotones.BotonClickeado();
+        //efectosBotones.BotonClickeado();
     }
 
     public void SalirJuego()
     {
         Debug.Log("Saliendo del juego");
-        efectosBotones.BotonClickeado();
+        //efectosBotones.BotonClickeado();
         Application.Quit();
     }
 }
