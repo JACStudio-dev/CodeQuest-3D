@@ -50,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Si está pausado, no procesamos movimiento ni físicas
+        if (Time.timeScale == 0f) return;
+
         HandleGround();
         HandleMovement();
         HandleJump();

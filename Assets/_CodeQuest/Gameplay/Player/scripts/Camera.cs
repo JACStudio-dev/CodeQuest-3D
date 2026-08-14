@@ -29,6 +29,9 @@ public class Camera : MonoBehaviour
 
     void LateUpdate()
     {
+        // Si el juego está pausado, no procesamos rotaciones ni actualización
+        if (Time.timeScale == 0f) return;
+
         if (target == null)
         {
             Debug.Log("no esta el dev", target);
@@ -37,33 +40,13 @@ public class Camera : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            Debug.Log("detectando presion");
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
 
             rotacionHorizontal += mouseX * rotationSpeed;
             rotacionVertical -= mouseY * rotationSpeed;
-
-            //offset = rotation * offset;
-
-            //los 2 valores son el limite de rotacion se pueden declarar pero de momento no lo veo necesario
             rotacionVertical = Mathf.Clamp(rotacionVertical, 10f, 80f);
         }
-        else
-        {
-            //caso para volver a la posicion definida
-            //offset = Vector3.Lerp(offset, originalOffset, returnSpeed * Time.deltaTime);
-        }
-
-        //transform.position = target.position + offset;
-        //transform.LookAt(target);
-
-        /*if (transform.position.y < 2f)
-        {
-            Vector3 pos = transform.position;
-            pos.y = 2f;
-            transform.position = pos;
-        }*/
 
         MovimientoCamara();
     }

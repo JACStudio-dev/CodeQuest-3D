@@ -17,19 +17,16 @@ public class opciones_pausa : MonoBehaviour
         opcionesAjustes.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (juegoPausado)
             {
-                Debug.Log("estoy reanudando el juego");
                 Reanudar();
             }
             else
             {
-                Debug.Log("estoy pausando el juego");
                 Pausa();
             }
         }
@@ -38,9 +35,9 @@ public class opciones_pausa : MonoBehaviour
     private void Pausa()
     {
         juegoPausado = true;
-
         Time.timeScale = 0f;
-        
+
+        // Liberar y mostrar el cursor correctamente
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -51,11 +48,11 @@ public class opciones_pausa : MonoBehaviour
     public void Reanudar()
     {
         juegoPausado = false;
-        
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
-
         Time.timeScale = 1f;
+
+        // Si tu juego requiere bloquear el mouse al jugar:
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         menuPausa.SetActive(false);
         opcionesPausa.SetActive(false);
@@ -73,8 +70,10 @@ public class opciones_pausa : MonoBehaviour
         opcionesAjustes.SetActive(false);
         opcionesPausa.SetActive(true);
     }
+
     public void MenuPrincipal()
     {
+        Time.timeScale = 1f; // IMPORTANTE: siempre restaurar el tiempo antes de cambiar de escena
         SceneManager.LoadScene("menu-principal");
     }
 }
