@@ -3,7 +3,6 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public Transform target;
-
     public float distance = 10f;
     public float height = 8f;
 
@@ -37,7 +36,7 @@ public class Camera : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            Debug.Log("detectando presion");
+            //Debug.Log("detectando presion");
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
 

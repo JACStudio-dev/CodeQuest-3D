@@ -22,34 +22,43 @@ public class opciones_pausa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (juegoPausado)
-            {
-                Debug.Log("estoy reanudando el juego");
-                Reanudar();
-            }
-            else
+            Debug.Log("estoy detectando la tecla escape");
+
+            if (!juegoPausado)
             {
                 Debug.Log("estoy pausando el juego");
                 Pausa();
+            }
+            else
+            {
+                Debug.Log("estoy reanudando el juego");
+                Reanudar();
             }
         }
     }
 
     private void Pausa()
     {
+        Debug.Log("estoy en pausa");
+
+        Debug.Log(menuPausa);
+
+        menuPausa.SetActive(true);
+        opcionesPausa.SetActive(true);
+        opcionesAjustes.SetActive(false);
+
         juegoPausado = true;
 
         Time.timeScale = 0f;
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        menuPausa.SetActive(true);
-        opcionesPausa.SetActive(true);
     }
 
     public void Reanudar()
     {
+
+        Debug.Log("estoy reanudando el juego");
         juegoPausado = false;
         
         Cursor.lockState = CursorLockMode.None;

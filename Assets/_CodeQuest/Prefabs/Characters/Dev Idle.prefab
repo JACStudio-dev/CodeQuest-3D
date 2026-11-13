@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Camera
   target: {fileID: 7810404275452902879}
-  distance: 10
+  distance: 5
   height: 8
   rotationSpeed: 5
   returnSpeed: 3
@@ -205,11 +205,11 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Neck'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
-        'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightFoot'\n\tTransform
-        'mixamorig:Head'\n\tTransform 'mixamorig:LeftUpLeg'\n\tTransform 'mixamorig:LeftArm'\n\tand
-        more ...\n\tFrom animation clip 'animacion intro'"
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:LeftHandPinky2'\n\tTransform
+        'mixamorig:RightHandRing2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+        'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tand
+        more ...\n\tFrom animation clip 'Walking'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -230,7 +230,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d4bf7fa0d4584c48a5c818a4871331a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5845574349962981127}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d4bf7fa0d4584c48a5c818a4871331a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6881189409095984511}
   m_SourcePrefab: {fileID: 100100000, guid: 2d4bf7fa0d4584c48a5c818a4871331a, type: 3}
+--- !u!95 &4216510106804823973 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 2d4bf7fa0d4584c48a5c818a4871331a, type: 3}
+  m_PrefabInstance: {fileID: 7777320954953374260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7435427463787685733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d4bf7fa0d4584c48a5c818a4871331a, type: 3}
@@ -260,7 +268,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.56, z: 0}
 --- !u!120 &2048827934269019026
 LineRenderer:
   serializedVersion: 3
@@ -384,8 +392,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   controller: {fileID: 4942599835766891239}
+  Animacion: {fileID: 4216510106804823973}
   speed: 6
-  gravity: -9.81
+  gravity: 0
   jumpHeight: 2
   groundCheck: {fileID: 6013732557721421010}
   groundDistance: 0.4
@@ -395,6 +404,29 @@ MonoBehaviour:
   VelocidadRotatacion: 100
   minDistance: 0.5
   maxPoints: 100
+--- !u!136 &6881189409095984511
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7435427463787685733}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.5035777
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6958878, z: 0}
 --- !u!4 &7810404275452902879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2d4bf7fa0d4584c48a5c818a4871331a, type: 3}

@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(LineRenderer))]
+//[RequireComponent(typeof(LineRenderer))]
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+
+    public Animator Animacion;
 
     public float speed = 6f;
     public float gravity = -9.81f;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
         ApplyGravity();
         DrawTrail();
+        
     }
 
     void HandleGround()
@@ -71,6 +74,9 @@ public class PlayerMovement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        Animacion.SetFloat("x", x );
+        Animacion.SetFloat("z", z);
 
         //rota el jugador tomando encuenta la variable de velocidad de rotacion
         transform.Rotate(Vector3.up * x * VelocidadRotatacion * Time.deltaTime);

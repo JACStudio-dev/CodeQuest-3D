@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: b53dea5abb767674c9e4d88f9dadc170
+guid: 5f76879586705c641ad89aa95919ebdc
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lineas
+    second: {fileID: 2100000, guid: a221e7eff1dd8464ebcf23905ab41132, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paimento
+    second: {fileID: 2100000, guid: e624e2d4e8df3344c9a1449d486df351, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
